@@ -17,3 +17,11 @@ debuglinks.list
 Makefile
 *.pro.user
 *.pro.user.*
+moc_*
+*.cache
+
+.env.list
+.apptool.config
+
+# Adjust .gitignore after renaming everything to a new name
+moe.smoothie.sailimgur

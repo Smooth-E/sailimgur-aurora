@@ -1,4 +1,4 @@
-TARGET = harbour-sailimgur
+TARGET = moe.smoothie.sailimgur
 
 # Application version
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
@@ -7,12 +7,7 @@ DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
 # Qt Library
 QT += svg network multimedia
 
-appicons.path = /usr/share/icons/hicolor
-appicons.files = appicons/*
-
-INSTALLS += appicons
-
-CONFIG += sailfishapp
+CONFIG += auroraapp
 
 HEADERS += \
     src/imageuploader.h \
@@ -25,10 +20,10 @@ SOURCES += main.cpp \
     src/simplecrypt.cpp
 
 OTHER_FILES = \
+    moe.smoothie.sailimgur.desktop \
     rpm/harbour-sailimgur.changes \
     rpm/harbour-sailimgur.spec \
     rpm/harbour-sailimgur.yaml \
-    harbour-sailimgur.desktop \
     qml/main.qml \
     qml/cover/CoverPage.qml \
     qml/pages/Settings.qml \
@@ -71,3 +66,6 @@ OTHER_FILES = \
     qml/pages/GalleryItemPage.qml
 
 INCLUDEPATH += $$PWD
+
+AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
+

@@ -1,4 +1,4 @@
-#include <sailfishapp.h>
+#include <auroraapp.h>
 #include <QScopedPointer>
 #include <QQuickView>
 #include <QQmlEngine>
@@ -49,11 +49,11 @@ int main(int argc, char *argv[])
     //qDebug() << "secret:" << secret;
     QString client_secret = crypto->decryptToString(QString(CLIENT_SECRET));
 
-    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QScopedPointer<QGuiApplication> app(Aurora::Application::application(argc, argv));
 
     clearWebCache();
 
-    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
 
     app->setApplicationName("harbour-sailimgur");
     app->setOrganizationName("harbour-sailimgur");
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<ImageUploader>("harbour.sailimgur.Uploader", 1, 0, "ImageUploader");
 
-    view->setSource(SailfishApp::pathTo("qml/main.qml"));
+    view->setSource(Aurora::Application::pathTo("qml/main.qml"));
     view->show();
 
     return app->exec();

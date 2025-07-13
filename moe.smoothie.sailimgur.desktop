@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Name=Sailimgur
+Icon=moe.smoothie.sailimgur
+Exec=moe.smoothie.sailimgur
+
+[X-Application]
+Permissions=
+OrganizationName=moe.smoothie
+ApplicationName=sailimgur
