@@ -3,9 +3,10 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Name=Sailimgur
 Icon=moe.smoothie.sailimgur
-Exec=moe.smoothie.sailimgur
+Exec=/usr/bin/moe.smoothie.sailimgur
 
 [X-Application]
-Permissions=
+Permissions=Internet
 OrganizationName=moe.smoothie
 ApplicationName=sailimgur
+ExecDBus=/usr/bin/moe.smoothie.sailimgur

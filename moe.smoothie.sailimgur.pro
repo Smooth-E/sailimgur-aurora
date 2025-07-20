@@ -22,8 +22,6 @@ SOURCES += main.cpp \
 OTHER_FILES = \
     moe.smoothie.sailimgur.desktop \
     rpm/harbour-sailimgur.changes \
-    rpm/harbour-sailimgur.spec \
-    rpm/harbour-sailimgur.yaml \
     qml/main.qml \
     qml/cover/CoverPage.qml \
     qml/pages/Settings.qml \
@@ -63,9 +61,15 @@ OTHER_FILES = \
     qml/pages/ImageInfoPage.qml \
     qml/pages/VideoComponent.qml \
     qml/pages/ImageComponent.qml \
-    qml/pages/GalleryItemPage.qml
+    qml/pages/GalleryItemPage.qml \
+    rpm/moe.smoothie.sailimgur.spec
 
 INCLUDEPATH += $$PWD
 
 AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
 
+CONFIG += auroraapp_i18n
+
+TRANSLATIONS += \
+    translations/moe.smoothie.sailimgur.ts \
+    translations/moe.smoothie.sailimgur-ru.ts \
