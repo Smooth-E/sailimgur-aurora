@@ -22,6 +22,7 @@ moc_*
 
 .env.list
 .apptool.config
+*.qm
 
 # Adjust .gitignore after renaming everything to a new name
 moe.smoothie.sailimgur
