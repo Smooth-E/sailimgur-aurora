@@ -54,10 +54,18 @@ Page {
         }
 
         if (is_album == true) {
-            galleryContentPageTitle = (is_gallery == true) ? qsTr("Gallery album") : qsTr("Album");
+            galleryContentPageTitle = is_gallery == true
+                                      //% "Gallery album"
+                                      ? qsTrId("header-gallery-album")
+                                      //% "Album"
+                                      : qsTrId("header-album")
             galleryContentModel.getAlbum(imgur_id, is_gallery);
         } else {
-            galleryContentPageTitle = (is_gallery == true) ? qsTr("Gallery image") : qsTr("Image");
+            galleryContentPageTitle = is_gallery == true
+                                      //% "Gallery image"
+                                      ? qsTrId("header-gallery-image")
+                                      //% "Image"
+                                      : qsTrId("header-image")
             galleryContentModel.getImage(imgur_id, is_gallery);
         }
 
@@ -94,23 +102,30 @@ Page {
             id: pullDownMenu;
 
             MenuItem {
-                id: imageInfoAction;
-                text: qsTr("image info");
-                visible: is_gallery == false;
-                onClicked: {
+                id: imageInfoAction
 
+                //% "Image info"
+                text: qsTrId("button-image-info")
+                visible: is_gallery == false
+
+                onClicked: {
+                    // TODO: Implement image info?
                 }
             }
 
             MenuItem {
                 id: submitToGalleryAction;
-                text: qsTr("Submit to gallery");
-                visible: is_gallery == false;
+
+                //% "Submit to gallery"
+                text: qsTrId("button-submit-to-gallery")
+                visible: is_gallery == false
+
                 onClicked: {
                     Imgur.submitToGallery(imgur_id, title,
                         function(data){
-                            console.log("Submitted to gallery. " + data);
-                            infoBanner.showText(qsTr("Image submitted to gallery"));
+                            console.log("Submitted to gallery. " + data)
+                            //% "Image submitted to gallery"
+                            infoBanner.showText(qsTrId("label-image-submitted-to-gallery"))
                         },
                         function onFailure(status, statusText) {
                             infoBanner.showHttpError(status, statusText);
@@ -130,22 +145,29 @@ Page {
             }*/
 
             MenuItem {
-                text: qsTr("Open in external browser");
+                //% "Open in external browser"
+                text: qsTrId("button-open-in-external-browser")
+
                 onClicked: {
                     Qt.openUrlExternally(galleryContentModel.gallery_page_link);
                 }
             }
 
             MenuItem {
-                text: qsTr("Copy link to clipboard");
+                //% "Copy link to clipboard"
+                text: qsTrId("button-copy-link-to-clipboard")
+
                 onClicked: {
-                    Clipboard.text = galleryContentModel.gallery_page_link;
-                    infoBanner.showText(qsTr("Link " + Clipboard.text + " copied to clipboard."));
+                    Clipboard.text = galleryContentModel.gallery_page_link
+                    //% "Link %1 copied to clipboard"
+                    infoBanner.showText(qsTrId("label-link-copied").arg(Clipboard.text))
                 }
             }
 
             MenuItem {
-                text: qsTr("Open page in browser");
+                //% "Open page in browser"
+                text: qsTrId("button-open-in-browser")
+
                 onClicked: {
                     var props = {
                         "url": galleryContentModel.gallery_page_link
@@ -363,26 +385,31 @@ Page {
 
                 TextArea {
                     id: writeCommentField;
+                    
                     anchors {
                         top: infoText.bottom;
                         left: parent.left;
                         right: parent.right;
                         margins: Theme.paddingMedium;
                     }
+
                     visible: false;
-                    placeholderText: qsTr("Write comment");
+                    //% "Write comment"
+                    placeholderText: qsTrId("label-write-comment")
 
                     EnterKey.enabled: text.trim().length > 0;
                     EnterKey.iconSource: "image://theme/icon-m-enter-accept";
+
                     EnterKey.onClicked: {
                         Imgur.commentCreation(imgur_id, text, null,
                               function (data) {
-                                  infoBanner.showText(qsTr("Comment sent!"));
-                                  visible = false;
-                                  text = "";
-                                  writeCommentField.focus = false;
+                                // Defined in CommentDelegate.qml
+                                infoBanner.showText(qsTrId("label-comment-sent"))
+                                visible = false
+                                text = ""
+                                writeCommentField.focus = false
 
-                                  commentsModel.getComments(imgur_id);
+                                commentsModel.getComments(imgur_id)
                               },
                               function(status, statusText) {
                                   infoBanner.showHttpError(status, statusText);
@@ -408,9 +435,12 @@ Page {
                     visible: commentsModel.count == 0;
 
                     Button {
-                        id: showCommentsButton;
-                        anchors.centerIn: parent;
-                        text: qsTr("show comments");
+                        id: showCommentsButton
+
+                        anchors.centerIn: parent
+                        //% "Show comments"
+                        text: qsTrId("button-show-comments")
+
                         onClicked: {
                             //console.log("commentsModel.count: " + commentsModel.count);
                             if(commentsModel.count > 0) {
@@ -459,9 +489,12 @@ Page {
 
                     Button {
                         id: showMoreCommentsButton;
+                        
                         anchors.centerIn: parent;
                         enabled: commentsModel.left > 0;
-                        text: qsTr("more (" + commentsModel.total + " total, " + commentsModel.left + " remaining)");
+                        //% "More (%1 total, %2 remaining)"
+                        text: qsTrId("button-load-more-comments").arg(commentsModel.total).arg(commentsModel.left)
+
                         onClicked: {
                             commentsModel.getNextComments();
                         }
@@ -488,7 +521,9 @@ Page {
             // Shown if not in gallery, like user's albums/images
             Row {
                 id: albumMetaRow;
+
                 anchors { left: parent.left; right: parent.right; }
+
                 width: parent.width;
                 z: 1;
                 anchors.leftMargin: constant.paddingMedium;
@@ -503,16 +538,20 @@ Page {
                     color: constant.colorHighlight;
                     text: galleryContentModel.datetime;
                 }
+
                 Label {
-                    id: viewsText;
+                    id: viewsText
+
                     width: parent.width / 2;
                     wrapMode: Text.Wrap;
                     font.pixelSize: constant.fontSizeMeta;
                     color: constant.colorHighlight;
-                    text: qsTr("views") + ": " + galleryContentModel.views;
+                    //% "Views: %1"
+                    text: qsTrId("label-gallery-views").arg(galleryContentModel.views)
                 }
             }
         }
+        
         VerticalScrollDecorator { flickable: flickable; }
     }
 

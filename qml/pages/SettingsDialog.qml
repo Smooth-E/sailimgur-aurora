@@ -16,9 +16,12 @@ Dialog {
         contentHeight: contentArea.height + 300;
 
         DialogHeader {
-            id: header;
-            title: qsTr("Settings");
-            acceptText: qsTr("Save");
+            id: header
+
+            //% "Settings"
+            title: qsTrId("header-settings");
+            //% "Save"
+            acceptText: qsTrId("button-save");
         }
 
         Column {
@@ -34,7 +37,9 @@ Dialog {
                 stepSize: 1;
                 width: parent.width;
                 valueText: value;
-                label: qsTr("Images shown in album");
+                //% "Images shown in album"
+                label: qsTrId("preference-images-shown-in-album")
+
                 onValueChanged: {
                     settings.albumImagesLimit = value;
                 }
@@ -44,8 +49,11 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Show comments");
+
+                //% "Show comments"
+                text: qsTrId("preference-show-comments")
                 checked: settings.showComments;
+
                 onClicked: {
                     checked ? settings.showComments = true : settings.showComments = false;
                 }
@@ -55,22 +63,27 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingExtraLarge;
                 anchors.rightMargin: constant.paddingMedium;
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeSmall : constant.fontSizeXSmall;
-                text: qsTr("Load comments automatically.");
+                //% "Load comments automatically"
+                text: qsTrId("preference-auto-load-comments")
             }
 
             Label {
                 anchors { left:parent.left;}
-                text: qsTr("Reddit Sub:");
+
+                //% "Reddit sub:"
+                text: qsTrId("preference-reddit-sub");
                 font.pixelSize: constant.fontSizeMedium;
             }
 
             TextField {
-                id: redditSubInput;
+                id: redditSubInput
+
                 anchors { right: parent.right;}
                 width: parent.width / 1.1;
-                placeholderText: qsTr(settings.redditSub);
+                placeholderText: settings.redditSub
             }
 
 
@@ -78,8 +91,11 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Show mature content");
+
+                //% "Show mature content"
+                text: qsTrId("preference-show-mature-content")
                 checked: settings.showNsfw;
+
                 onClicked: {
                     checked ? settings.showNsfw = true : settings.showNsfw = false;
                 }
@@ -88,30 +104,38 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingExtraLarge;
                 anchors.rightMargin: constant.paddingMedium;
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeSmall : constant.fontSizeXSmall;
                 wrapMode: Text.Wrap;
-                text: qsTr("Mature posts and comments may include sexually suggestive or adult-oriented content.");
+                //% "Mature posts and comments may include sexually suggestive or adult-oriented content."
+                text: qsTrId("preference-show-mature-content-description");
             }
 
             TextSwitch {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Autoplay videos / images");
+
+                //% "Autoplay videos / images"
+                text: qsTrId("preference-autoplay")
                 checked: settings.playImages;
+
                 onClicked: {
                     checked ? settings.playImages = true : settings.playImages = false;
                 }
             }
+
             Label {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingExtraLarge;
                 anchors.rightMargin: constant.paddingMedium;
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeSmall : constant.fontSizeXSmall;
                 wrapMode: Text.Wrap;
-                text: qsTr("Autoplay animated images (gif/gifv). Disabling autoplay may help with showing large albums.");
+                //% "Autoplay animated images (gif/gifv). Disabling autoplay may help with showing large albums."
+                text: qsTrId("preference-autoplay-description");
             }
 
             /*
@@ -140,28 +164,37 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Use video player");
+
+                //% "Use video player"
+                text: qsTrId("preference-use-video-player")
                 checked: settings.useVideoLoader;
+
                 onClicked: {
                     checked ? settings.useVideoLoader = true : settings.useVideoLoader = false;
                 }
             }
+
             Label {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingExtraLarge;
                 anchors.rightMargin: constant.paddingMedium;
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeSmall : constant.fontSizeXSmall;
                 wrapMode: Text.Wrap;
-                text: qsTr("Use video player to play gifv videos (mp4).");
+                //% "Use video player to play gifv videos (mp4)."
+                text: qsTrId("preference-use-video-player-description")
             }
 
             TextSwitch {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Hide toolbar when scrolling");
+
+                //% "Hide toolbar when scrolling"
+                text: qsTrId("preference-hide-toolbar-when-scrolling")
                 checked: settings.toolbarHidden;
+
                 onClicked: {
                     checked ? settings.toolbarHidden = true : settings.toolbarHidden = false;
                 }
@@ -171,8 +204,11 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingMedium;
                 anchors.rightMargin: constant.paddingMedium;
-                text: qsTr("Toolbar on bottom");
-                checked: settings.toolbarBottom;
+
+                //% "Toolbar on bottom"
+                text: qsTrId("preference-bottom-toolbar");
+                checked: settings.toolbarBottom
+
                 onClicked: {
                     checked ? settings.toolbarBottom = true : settings.toolbarBottom = false;
                     toolbarPositionChanged();
@@ -182,9 +218,11 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; }
                 anchors.leftMargin: constant.paddingExtraLarge;
                 anchors.rightMargin: constant.paddingMedium;
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeSmall : constant.fontSizeXSmall;
-                text: qsTr("Might need to restart the app to work correctly.");
+                //% "Might need to restart the app to work correctly."
+                text: qsTrId("prefrence-bottom-toolbar-description")
             }
         }
 
@@ -204,8 +242,5 @@ Dialog {
             }
         }
         settings.saveSettings();
-    }
-
-    Component.onCompleted: {
     }
 }

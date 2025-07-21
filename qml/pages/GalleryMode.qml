@@ -6,6 +6,7 @@ Row {
         left: parent.left;
         right: parent.right;
     }
+
     height: childrenRect.height + Theme.horizontalPageMargin;
     spacing: Theme.paddingSmall;
 
@@ -39,19 +40,28 @@ Row {
     }
 
     Label {
-        id: accountModeLabel;
+        id: accountModeLabel
+
         width: parent.width;
-        height: constant.itemSizeMedium;
-        text:
-            settings.mode === constant.mode_favorites ?
-                qsTr("Your favorite images") : (
-                    settings.mode === constant.mode_albums ? qsTr("Your albums") : (
-                            settings.mode === constant.mode_images) ? qsTr("Your images") : ""
-                    );
+        height: constant.itemSizeMedium
+
+        text: settings.mode === constant.mode_favorites 
+              //% "Your favorite images"
+              ? qsTrId("label-your-favorite-images")
+              : settings.mode === constant.mode_albums
+                //% "Your albums"
+                ? qsTrId("label-your-albums")
+                : settings.mode === constant.mode_images
+                  //% "Your images"
+                  ? qsTrId("label-your-images")
+                  : ""
+        
         font.pixelSize: constant.fontSizeTitle;
         color: constant.colorHighlight;
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere;
-        visible: (settings.mode === constant.mode_favorites || settings.mode === constant.mode_albums || settings.mode === constant.mode_images);
+        visible: settings.mode === constant.mode_favorites
+                 || settings.mode === constant.mode_albums
+                 || settings.mode === constant.mode_images
     }
 
     ComboBox {
@@ -63,48 +73,66 @@ Row {
 
         menu: ContextMenu {
             MenuItem {
-                id: mainMode;
-                text: qsTr("most viral");
+                id: mainMode
+
+                //% "Most viral"
+                text: qsTrId("option-most-viral")
+
                 onClicked: {
                     internal.setMode(constant.mode_main);
                 }
             }
 
             MenuItem {
-                id: userMode;
-                text: qsTr("user submitted");
+                id: userMode
+
+                //% "User submitted"
+                text: qsTrId("option-user-submitted")
+
                 onClicked: {
                     internal.setMode(constant.mode_user);
                 }
             }
 
             MenuItem {
-                id: randomMode;
-                text: qsTr("random");
+                id: randomMode
+
+                //% "Random"
+                text: qsTrId("option-random")
+
                 onClicked: {
                     internal.setMode(constant.mode_random);
                 }
             }
 
             MenuItem {
-                id: scoreMode;
-                text: qsTr("highest scoring");
+                id: scoreMode
+
+                //% "Highest scoring"
+                text: qsTrId("option-highest-scoring")
+
                 onClicked: {
                     internal.setMode(constant.mode_score);
                 }
             }
 
             MenuItem {
-                id: memesMode;
-                text: qsTr("memes");
+                id: memesMode
+
+                //% "Memes"
+                text: qsTrId("option-memes")
+
                 onClicked: {
                     internal.setMode(constant.mode_memes);
                 }
             }
 
             MenuItem {
-                id: redditMode;
-                text: qsTr("reddit");
+                id: redditMode
+
+                //% "Reddit"
+                text: qsTrId("option-reddit")
+                
                 onClicked: {
                     internal.setMode(constant.mode_reddit);
                 }
@@ -114,18 +142,23 @@ Row {
     }
 
     ComboBox {
-        id: sortBox;
+        id: sortBox
+
         width: (settings.sort !== "top" || settings.mode === constant.mode_score)
                 ? parent.width / 2 : parent.width / 3;
-        currentIndex: 0;
-//        label: qsTr("sort:");
+        currentIndex: 0
+        //% "Sort by"
+        label: qsTrId("label-sort-by")
         visible: accountModeLabel.visible == false;
 
         menu: ContextMenu {
             MenuItem {
-                id: viralSort;
-                text: qsTr("popularity");
+                id: viralSort
+
+                //% "Popularity"
+                text: qsTrId("option-popularity");
                 visible: (settings.mode !== constant.mode_reddit)
+
                 onClicked: {
                     settings.sort = "viral";
                     internal.setSortCommon();
@@ -133,8 +166,11 @@ Row {
             }
 
             MenuItem {
-                id: newestSort;
-                text: qsTr("newest");
+                id: newestSort
+
+                //% "Newest"
+                text: qsTrId("option-newest")
+
                 onClicked: {
                     settings.sort = "time";
                     internal.setSortCommon();
@@ -142,11 +178,14 @@ Row {
             }
 
             MenuItem {
-                id: topSort;
-                text: qsTr("top");
+                id: topSort
+
+                //% "Top"
+                text: qsTrId("option-top");
                 visible: (settings.mode === constant.mode_score
                           || settings.mode === constant.mode_memes
                           || settings.mode === constant.mode_reddit)
+                
                 onClicked: {
                     settings.sort = "top";
                     internal.setSortCommon();
@@ -156,19 +195,22 @@ Row {
     }
 
     ComboBox {
-        id: windowBox;
+        id: windowBox
+
         width: (settings.sort !== "top" || settings.mode === constant.mode_score)
                 ? parent.width / 2 : parent.width / 3;
         currentIndex: 0;
-//        label: qsTr("window:");
         visible: (accountModeLabel.visible == false &&
                   settings.sort === "top" &&
                   settings.mode !== constant.mode_random);
 
         menu: ContextMenu {
             MenuItem {
-                id: dayWind;
-                text: qsTr("day");
+                id: dayWind
+
+                //% "Day"
+                text: qsTrId("window-day");
+                
                 onClicked: {
                     settings.window = "day";
                     internal.setWindowCommon();
@@ -176,8 +218,11 @@ Row {
             }
 
             MenuItem {
-                id: weekWind;
-                text: qsTr("week");
+                id: weekWind
+
+                //% "Week"
+                text: qsTrId("window-week")
+
                 onClicked: {
                     settings.window = "week";
                     internal.setWindowCommon();
@@ -186,7 +231,9 @@ Row {
 
             MenuItem {
                 id: monthWind;
-                text: qsTr("month");
+
+                //% "Month"
+                text: qsTrId("window-month");
                 onClicked: {
                     settings.window = "month";
                     internal.setWindowCommon();
@@ -194,8 +241,11 @@ Row {
             }
 
             MenuItem {
-                id: yearWind;
-                text: qsTr("year");
+                id: yearWind
+
+                //% "Year"
+                text: qsTrId("window-year")
+
                 onClicked: {
                     settings.window = "year";
                     internal.setWindowCommon();
@@ -203,8 +253,11 @@ Row {
             }
 
             MenuItem {
-                id: allWind;
-                text: qsTr("all");
+                id: allWind
+
+                //% "All"
+                text: qsTrId("window-all")
+
                 onClicked: {
                     settings.window = "all";
                     internal.setWindowCommon();

@@ -19,7 +19,8 @@ Page {
     property string imagePath: "";
     property string imageAlbum: "";
     property bool uploadDone: false;
-    property string previewSectionText: qsTr("Selected image");
+    //% "Selected image"
+    property string previewSectionText: qsTrId("label-selected-image");
 
     property string link;
     property string deletehash;
@@ -34,14 +35,19 @@ Page {
         contentHeight: contentArea.height;
 
         PageHeader {
-            id: header;
-            title: qsTr("Upload image");
+            id: header
+
+            //% "Upload image"
+            title: qsTrId("header-upload-image")
         }
 
         Column {
             id: contentArea;
+
             anchors { top: header.bottom; left: parent.left; right: parent.right }
+
             width: parent.width;
+
             anchors.leftMargin: constant.paddingMedium;
             anchors.rightMargin: constant.paddingMedium;
 
@@ -54,7 +60,9 @@ Page {
                     Label {
                         anchors.horizontalCenter: parent.horizontalCenter;
                         anchors.verticalCenter: parent.verticalCenter;
-                        text: qsTr("Gallery");
+
+                        //% "Gallery"
+                        text: qsTrId("button-gallery")
                         font.pixelSize: Screen.sizeCategory >= Screen.Large
                                             ? constant.fontSizeLarge : constant.fontSizeMedium;
                         color: deviceItem.highlighted ? constant.colorHighlight : constant.colorPrimary;
@@ -100,7 +108,9 @@ Page {
 
             Separator {
                 id: drawerSep;
+
                 anchors { left: parent.left; right: parent.right; }
+
                 color: constant.colorSecondary;
                 primaryColor: Theme.rgba(color, 0.5)
                 secondaryColor: Theme.rgba(color, 0.5)
@@ -113,23 +123,30 @@ Page {
 
             TextField {
                 id: titleTextField;
+
                 width: parent.width;
-                placeholderText: qsTr("Title");
-                label: qsTr("Title");
+                //% "Title"
+                placeholderText: qsTrId("label-title")
+                label: qsTrId("label-title")
             }
 
             TextField {
                 id: descTextField;
+
                 width: parent.width;
-                placeholderText: qsTr("Description");
-                label: qsTr("Description");
+                //% "Description"
+                placeholderText: qsTrId("label-description")
+                label: qsTrId("label-description");
             }
 
             TextSwitch {
                 id: galleryItem;
-                text: qsTr("Add to usersub");
+
+                //% "Add to usersub"
+                text: qsTrId("option-add-to-user-sub")
                 anchors { left: parent.left; right: parent.right; }
                 checked: submitToGallery;
+
                 onClicked: {
                     checked ? submitToGallery = true : submitToGallery = false;
                 }
@@ -185,15 +202,18 @@ Page {
 
             Label {
                 id: imagePlaceHolder;
+
                 width: parent.width;
                 height: 200;
                 visible: imagePath == '';
-                text: qsTr("No image selected");
+                //% "No image selected"
+                text: qsTrId("notice-no-image-selected")
                 color: constant.colorHighlight;
             }
 
             UploadedDelegate {
                 id: uploadedDelegate;
+
                 width: parent.width;
                 anchors { left: parent.left; right: parent.right; }
 
@@ -216,22 +236,30 @@ Page {
             ListItem {
                 Button {
                     id: uploadButton;
+
                     anchors { left: parent.left; }
                     width: parent.width / 2;
-                    text: qsTr("Start upload");
+                    //% "Start upload"
+                    text: qsTrId("button-start-upload")
                     enabled: imagePath != '';
+
                     onClicked: {
                         resetUploadState();
                         imageUploadData.uploadImage(imagePath, imageAlbum, titleTextField.text, descTextField.text);
                         uploadProgress.visible = true;
                     }
                 }
+
                 Button {
                     id: removeButton;
+
                     anchors { left: uploadButton.right; right: parent.right; }
+
                     width: parent.width / 2;
-                    text: qsTr("Clear image");
+                    //% "Clear image"
+                    text: qsTrId("button-clear-image");
                     enabled: imagePath != '';
+
                     onClicked: {
                         imagePath = "";
                     }
@@ -240,10 +268,13 @@ Page {
 
             ProgressBar {
                 id: uploadProgress;
+
                 minimumValue: 0;
                 maximumValue: 1;
                 value: 0;
+
                 anchors { left: parent.left; right: parent.right; }
+
                 visible: false;
             }
         }
@@ -317,7 +348,8 @@ Page {
         }
 
         function onSuccess(replyData) {
-            infoBanner.showText(qsTr("Image uploaded successfully"));
+            //% "Image uploaded successfully"
+            infoBanner.showText(qsTrId("notice-image-uploaded-success"));
             var jsonObject = JSON.parse(replyData);
             var data = jsonObject.data;
 
@@ -328,7 +360,8 @@ Page {
             datetime = data.datetime;
 
             uploadDone = true;
-            previewSectionText = qsTr("Image uploaded");
+            //% "Image uploaded"
+            previewSectionText = qsTrId("label-image-uploaded");
             titleTextField.text = "";
             descTextField.text = "";
 
@@ -336,7 +369,8 @@ Page {
                 Imgur.submitToGallery(data.id, imageTitle,
                     function(data){
                         console.log("Submitted to gallery. " + data);
-                        infoBanner.showText(qsTr("Image submitted to gallery"));
+                        //% "Image submitted to gallery"
+                        infoBanner.showText(qsTrId("notice-image-submitted-to-gallery"));
                     },
                     onFailure
                 );
@@ -361,7 +395,8 @@ Page {
     }
 
     function resetUploadState() {
-        previewSectionText = qsTr("Selected image");
+        //% "Selected image"
+        previewSectionText = qsTrId("label-selected-image");
         link = "";
         deletehash = "";
         id = "";

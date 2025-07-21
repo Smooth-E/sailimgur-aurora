@@ -12,9 +12,12 @@ ContextMenu {
 
     MenuItem {
         anchors { left: parent.left; right: parent.right; }
+
         font.pixelSize: Screen.sizeCategory >= Screen.Large
                             ? constant.fontSizeSmall : constant.fontSizeXSmall;
-        text: qsTr("Open link in browser");
+        // Defined in ImageContextMenu.qml
+        text: qsTrId("button-open-link-in-browser")
+
         onClicked: {
             var props = {
                 "url": link
@@ -24,43 +27,58 @@ ContextMenu {
             //infoBanner.showText(qsTr("Launching browser."));
         }
     }
+
     MenuItem {
         anchors { left: parent.left; right: parent.right; }
+
         font.pixelSize: Screen.sizeCategory >= Screen.Large
-                            ? constant.fontSizeSmall : constant.fontSizeXSmall;
-        text: qsTr("Copy link to clipboard");
+                        ? constant.fontSizeSmall
+                        : constant.fontSizeXSmall;
+        text: qsTrId("button-copy-link-to-clipboard")
+
         onClicked: {
             Clipboard.text = link;
-            infoBanner.showText(qsTr("Link " + Clipboard.text + " copied to clipboard."));
+            infoBanner.showText(qsTrId("label-link-copied").arg(link))
         }
     }
     MenuItem {
         anchors { left: parent.left; right: parent.right; }
+
         font.pixelSize: Screen.sizeCategory >= Screen.Large
-                            ? constant.fontSizeSmall : constant.fontSizeXSmall;
-        text: qsTr("Copy delete link to clipboard");
+                        ? constant.fontSizeSmall
+                        : constant.fontSizeXSmall
+        //% "Copy delete link to clipboard"
+        text: qsTrId("button-copy-delete-link-to-clipboard")
+
         onClicked: {
             Clipboard.text = "http://imgur.com/delete/" + deletehash;
-            infoBanner.showText(qsTr("Delete link " + Clipboard.text + " copied to clipboard."));
+            //% "Delete link %1 copied to clipboard."
+            infoBanner.showText(qsTrId("notice-delete-link-copied-to-clipboard").arg(Clipboard.text));
         }
     }
     MenuItem {
         anchors { left: parent.left; right: parent.right; }
+
         font.pixelSize: Screen.sizeCategory >= Screen.Large
-                            ? constant.fontSizeSmall : constant.fontSizeXSmall;
-        text: qsTr("Delete image");
+                        ? constant.fontSizeSmall
+                        : constant.fontSizeXSmall
+        //% "Delete image
+        text: qsTrId("button-delete-image")
+
         onClicked: {
             deleteImageAlbum(imgur_id, deletehash);
         }
     }
 
     function deleteImageAlbum() {
-        remorse.execute(qsTr("Deleting image/album"), function() {
+        //% "Deleting image/album"
+        remorse.execute(qsTrId("remorse-deleting-image-or-album"), function() {
             if (is_album) {
                 Imgur.albumDeletion(imgur_id,
                     function(data){
                         //console.log("Album deleted. " + data);
-                        infoBanner.showText(qsTr("Album deleted"));
+                        //% "Album deleted"
+                        infoBanner.showText(qsTrId("notice-album-deleted"));
                         removedFromModel(imgur_id);
                     },
                     function onFailure(status, statusText) {
@@ -71,7 +89,8 @@ ContextMenu {
                 Imgur.imageDeletion(deletehash,
                     function(data){
                         //console.log("Image deleted. " + data);
-                        infoBanner.showText(qsTr("Image deleted"));
+                        //% "Image deleted"
+                        infoBanner.showText(qsTrId("notice-image-deleted"));
                         removedFromModel(imgur_id);
                     },
                     function onFailure(status, statusText) {
@@ -84,5 +103,6 @@ ContextMenu {
             }
         });
     }
+
     RemorsePopup { id: remorse }
 }

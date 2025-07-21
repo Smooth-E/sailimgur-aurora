@@ -2,9 +2,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Dialog {
-    id: root;
+    id: root
+
     allowedOrientations: Orientation.All;
 
+    // TODO: Display changelog as a single formatted text
     SilicaFlickable {
         id: flickable;
 

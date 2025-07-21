@@ -16,26 +16,33 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Sign In to imgur");
-            property bool busy: false;
+
+            property bool busy: false
+
+            //% "Sign In to imgur"
+            title: qsTrId("header-sign-in");
         }
 
         Column {
             id: contentArea;
+
             anchors { top: header.bottom; left: parent.left; right: parent.right; }
             anchors.leftMargin: constant.paddingSmall;
             anchors.rightMargin: constant.paddingSmall;
+
             height: childrenRect.height;
             spacing: constant.paddingMedium;
 
             Label {
                 id: helpLabel;
+
                 anchors { left: parent.left; right: parent.right }
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeLarge : constant.fontSizeMedium;
                 wrapMode: Text.Wrap;
-                text: qsTr("To use Sailimgur, you must sign in to your imgur account first. \
-Click the button below will launch an external web browser for you to sign in.");
+                //% "To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in."
+                text: qsTrId("description-sign-in");
             }
 
             Item {
@@ -45,8 +52,11 @@ Click the button below will launch an external web browser for you to sign in.")
 
                 Button {
                     id: signInButton;
+
                     anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Sign In");
+                    //% "Sign in"
+                    text: qsTrId("button-sign-in")
+
                     onClicked: {
                         var signInUrl = Imgur.AUTHORIZE_URL+"?client_id="+constant.clientId+"&response_type=pin";
                         console.log("Launching web browser with url:", signInUrl);
@@ -59,16 +69,21 @@ Click the button below will launch an external web browser for you to sign in.")
 
             Label {
                 id: afterLabel;
+
                 anchors { left: parent.left; right: parent.right; }
+
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeLarge : constant.fontSizeMedium;
                 wrapMode: Text.Wrap;
-                text: qsTr("After sign in, a PIN code will display. Enter the PIN code in the text field below and click done.");
+                //% "After sign in, a PIN code will display. Enter the PIN code in the text field below and click done."
+                text: qsTrId("description-sign-in-pin");
             }
 
             Item {
                 id: pinCodeTextFieldWrapper;
+
                 anchors { left: parent.left; right: parent.right; }
+
                 height: pinCodeTextField.height + 2 * constant.paddingMedium;
 
                 TextField {
@@ -76,11 +91,13 @@ Click the button below will launch an external web browser for you to sign in.")
                     anchors.centerIn: parent;
                     width: parent.width;
                     //inputMethodHints: Qt.ImhDigitsOnly;
-                    placeholderText: qsTr("PIN");
-                    label: qsTr("PIN");
+                    //% "PIN"
+                    placeholderText: qsTrId("label-pin");
+                    label: qsTrId("label-pin");
 
                     EnterKey.enabled: text.length > 0;
                     EnterKey.iconSource: "image://theme/icon-m-enter-accept";
+
                     EnterKey.onClicked: {
                         internal.doneButtonClicked();
                     }
@@ -89,9 +106,12 @@ Click the button below will launch an external web browser for you to sign in.")
 
             Button {
                 id: doneButton;
+
                 anchors.horizontalCenter: parent.horizontalCenter;
                 enabled: pinCodeTextField.text != "";
-                text: qsTr("Done");
+                //% "Done"
+                text: qsTrId("button-done");
+
                 onClicked: {
                     internal.doneButtonClicked();
                 }
@@ -112,7 +132,8 @@ Click the button below will launch an external web browser for you to sign in.")
                     loggedIn = true;
                     settings.accessToken = access_token;
                     settings.refreshToken = refresh_token;
-                    infoBanner.showText(qsTr("Signed in successfully"));
+                    //% "Signed in successfully"
+                    infoBanner.showText(qsTrId("notice-sign-in-success"));
                     settings.saveTokens();
                     settings.settingsLoaded();
                     // back to main page
@@ -122,7 +143,8 @@ Click the button below will launch an external web browser for you to sign in.")
                     loggedIn = false;
                     if (status === 401) {
                         pinCodeTextField.text = "";
-                        infoBanner.showText(qsTr("Error: Unable to authorize with imgur. Please sign in again and enter the correct PIN code."))
+                        //% "Error: Unable to authorize with imgur. Please sign in again and enter the correct PIN code."
+                        infoBanner.showText(qsTrId("notice.auth-failed"))
                     }
                     else {
                         infoBanner.showHttpError(status, statusText);

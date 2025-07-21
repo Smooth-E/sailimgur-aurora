@@ -41,10 +41,16 @@ Page {
         anchors.fill: parent;
         contentHeight: contentArea.height;
 
-        PageHeader { id: header; title: qsTr("Profile"); }
+        PageHeader {
+            id: header
+            
+            //% "Profile"
+            title: qsTrId("header-profile")
+        }
 
         Column {
-            id: contentArea;
+            id: contentArea
+
             width: parent.width;
             height: childrenRect.height;
 
@@ -72,7 +78,6 @@ Page {
                 spacing: Theme.paddingMedium;
 
                 Label {
-//                    text: reputation + qsTr(" reputation");
                     text: reputation;
                     color: constant.colorHighlight;
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
@@ -87,7 +92,8 @@ Page {
                 }
 
                 Label {
-                    text: qsTr("Member since ") + created;
+                    //% Member since %1
+                    text: qsTrId("label-member-since").arg(created)
                     color: constant.colorHighlight;
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeSmall : constant.fontSizeXSmall
@@ -109,8 +115,10 @@ Page {
 
                 Label {
                     anchors { left: parent.left; right: parent.right; }
-                    anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Uploaded images");
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    //% "Uploaded images"
+                    text: qsTrId("button-uploaded-images")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
                     color: uploadsItem.highlighted ? constant.colorHighlight : constant.colorPrimary;
@@ -129,8 +137,10 @@ Page {
 
                 Label {
                     anchors { left: parent.left; right: parent.right; }
-                    anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Favorites");
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    //% "Favorites"
+                    text: qsTrId("button-favorites")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
                     color: favoritesItem.highlighted ? constant.colorHighlight : constant.colorPrimary;
@@ -152,7 +162,9 @@ Page {
                 Label {
                     anchors { left: parent.left; right: parent.right; }
                     anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Albums");
+
+                    //% "Albums"
+                    text: qsTrId("button-albums")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
                     color: albumsItem.highlighted ? constant.colorHighlight : constant.colorPrimary;
@@ -174,7 +186,9 @@ Page {
                 Label {
                     anchors { left: parent.left; right: parent.right; }
                     anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Images");
+
+                    //% "Images"
+                    text: qsTrId("button-images")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
                     color: imagesItem.highlighted ? constant.colorHighlight : constant.colorPrimary;
@@ -236,7 +250,9 @@ Page {
                 Label {
                     anchors { left: parent.left; right: parent.right; }
                     anchors.verticalCenter: parent.verticalCenter;
-                    text: qsTr("Logout");
+                    
+                    //% "Log out"
+                    text: qsTrId("button-log-out")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
                     color: imagesItem.highlighted ? constant.colorHighlight : constant.colorPrimary;

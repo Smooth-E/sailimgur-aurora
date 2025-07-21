@@ -26,8 +26,10 @@ Page {
             if (settings.accessToken === "" || settings.refreshToken === "") {
                 loggedIn = false;
                 console.log("Not signed in. Using anonymous mode.");
-                infoBanner.showText(qsTr("Not signed in. Using anonymous mode."));
-                settings.user = qsTr("anonymous");
+                //% "Not signed in. Using anonymous mode."
+                infoBanner.showText(qsTrId("notice-not-signed-in"));
+                //% "Anonymous"
+                settings.user = qsTrId("status-anonymous");
                 galleryModel.processGalleryMode();
             } else {
                 Imgur.getAccountCurrent(
@@ -124,20 +126,19 @@ Page {
     }
 
     TextField {
-        id: redditSubInputField;
+        id: redditSubInputField
+
         anchors.right: parent.right;
         anchors.top: parent.top;
 
         visible: settings.mode === constant.mode_reddit;
-
         width: parent.width / 1.2;
-
-        placeholderText: qsTr(settings.redditSub);
-
+        placeholderText: settings.redditSub
         font.pixelSize: constant.fontSizeLarge;
 
         EnterKey.enabled: text.length > 0;
-        EnterKey.iconSource: "image://theme/icon-m-enter-accept";
+        EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+
         EnterKey.onClicked: {
             settings.redditSub = redditSubInputField.text.trim();
 
@@ -160,8 +161,11 @@ Page {
             id: pullDownMenu;
 
             MenuItem {
-                id: aboutMenu;
-                text: qsTr("About");
+                id: aboutMenu
+
+                //% "About"
+                text: qsTrId("button-about")
+
                 onClicked: {
                     aboutPage.load();
                     pageStack.push(aboutPage);
@@ -169,8 +173,11 @@ Page {
             }
 
             MenuItem {
-                id: settingsMenu;
-                text: qsTr("Settings");
+                id: settingsMenu
+
+                //% "Settings"
+                text: qsTrId("button-settings")
+
                 onClicked: {
                     pageStack.push(settingsDialog);
                 }
@@ -227,7 +234,8 @@ Page {
                 if(atYEnd) {
                     page += 1;
 //                    console.log("atYEnd: " + pageNo);
-                    statusLabel.text = qsTr("Loading next page");
+                    //% "Loading next page"
+                    statusLabel.text = qsTrId("status-loading-next-page");
                     galleryModel.nextPage(galleryModel.query);
                 }
             }

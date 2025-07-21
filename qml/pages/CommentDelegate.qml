@@ -204,17 +204,21 @@ Item {
             }
 
             TextArea {
-                id: writeCommentField;
+                id: writeCommentField
+
                 anchors { left: parent.left; right: parent.right; }
                 visible: false;
-                placeholderText: qsTr("Reply to comment");
+                //% "Reply to comment"
+                placeholderText: qsTrId("placeholder-replace-to-comment");
 
                 EnterKey.enabled: text.trim().length > 0;
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept";
+
                 EnterKey.onClicked: {
                     commentsModel.commentCreate(imgur_id, id, text,
                         function (data) {
-                            infoBanner.showText(qsTr("Comment sent!"));
+                            //% "Comment sent!"
+                            infoBanner.showText(qsTrId("label-comment-sent"));
                             visible = false;
                             text = "";
                             writeCommentField.focus = false;

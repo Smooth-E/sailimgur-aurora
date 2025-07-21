@@ -528,9 +528,14 @@ function fillAlbumVariables(output, model) {
 
     model.info = "";
     if (model.account_url !== "") {
-        model.info += qsTr("by") + " " + model.account_url + " at ";
+        //% "by %1 at "
+        model.info += qsTrId("label-album-description").arg(model.account_url)
     }
-    model.info += model.datetime + ". " + model.views + " " + qsTr("views");
+
+    model.info += model.datetime + ". ";
+
+    //% "%1 views"
+    model.info += qsTrId("label-album-views").arg(model.views)
 
     //console.log("score=" + score + "; total=" + total + "; ups=" + ups + "; downs=" + downs + " upsPercent=" + upsPercent + "; downsPercent="  + downsPercent);
 }

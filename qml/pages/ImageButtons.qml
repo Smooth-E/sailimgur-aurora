@@ -68,9 +68,11 @@ Row {
         icon.width: parent.iconSize;
         icon.height: parent.iconSize;
         icon.source: constant.iconClipboard;
+
         onClicked: {
-            Clipboard.text = link_original;
-            infoBanner.showText(qsTr("Image link " + Clipboard.text + " copied to clipboard."));
+            Clipboard.text = link_original
+            //% "Image link %1 copied to clipboard.
+            infoBanner.showText(qsTrId("label-image-link-copied").arg(Clipboard.text));
         }
     }
 

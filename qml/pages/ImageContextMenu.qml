@@ -24,31 +24,36 @@ ContextMenu {
 
     MenuItem {
         anchors { left: parent.left; right: parent.right; }
+
         font.pixelSize: Screen.sizeCategory >= Screen.Large
                             ? constant.fontSizeSmall : constant.fontSizeXSmall;
-        text: qsTr("Open link in browser");
+        //% "Open link in browser"
+        text: qsTrId("button-open-link-in-browser")
+
         onClicked: {
             var props = {
                 "url": url
             }
             pageStack.push(Qt.resolvedUrl("WebPage.qml"), props);
-            //Qt.openUrlExternally(url);
-            //infoBanner.showText(qsTr("Launching browser."));
         }
     }
 
     MenuItem {
-        text: qsTr("Open in external browser");
+        // Defined in GalleryContentPage.qml
+        text: qsTrId("button-open-in-external-browser")
+
         onClicked: {
             Qt.openUrlExternally(url);
         }
     }
 
     MenuItem {
-        text: qsTr("Copy link to clipboard");
+        // Defined in GalleryContentPage.qml
+        text: qsTrId("button-copy-link-to-clipboard")
+
         onClicked: {
             Clipboard.text = url;
-            infoBanner.showText(qsTr("Link " + Clipboard.text + " copied to clipboard."));
+            infoBanner.showText(qsTrId("label-lnk-copied").arg(Clipboard.text));
         }
     }
 }

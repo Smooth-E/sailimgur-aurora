@@ -28,7 +28,9 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Image information");
+
+            //% "Image information"
+            title: qsTrId("header-image-information");
         }
 
         Column {
@@ -50,62 +52,74 @@ Page {
             anchors { leftMargin: constant.paddingMedium; rightMargin: constant.paddingMedium; }
 
             DetailItem {
-                label: qsTr('Id');
+                //% "Id"
+                label: qsTrId("detail-id")
                 value: root.image_id;
             }
 
             DetailItem {
-                label: qsTr('Width');
+                //% "Width"
+                label: qsTrId("detail-width")
                 value: root.image_width;
             }
 
             DetailItem {
-                label: qsTr('Height');
+                //% "Height"
+                label: qsTrId("detail-height")
                 value: root.image_height;
             }
 
             DetailItem {
-                label: qsTr('Type');
+                //% "Type"
+                label: qsTrId("detail-type")
                 value: root.type;
             }
 
             DetailItem {
-                label: qsTr('Size');
+                //% "Size"
+                label: qsTrId("detail-size")
                 value: root.size;
             }
 
             DetailItem {
-                label: qsTr('Views');
+                //% "Views"
+                label: qsTrId("detail-views")
                 value: root.views;
             }
 
             DetailItem {
-                label: qsTr('Bandwidth');
+                //% "Bandwidth"
+                label: qsTrId("deatail-bandwidth")
                 value: root.bandwith;
             }
 
             DetailItem {
-                label: qsTr('Section');
+                //% "Section"
+                label: qsTrId("detail-section")
                 value: root.section;
             }
 
             DetailItem {
-                label: qsTr('Animated');
+                //% "Animated"
+                label: qsTrId("detail-animated")
                 value: root.animated;
             }
 
             DetailItem {
-                label: qsTr('NSFW');
+                //% "NSFW"
+                label: qsTrId("detail-nsfw")
                 value: root.nsfw;
             }
 
             DetailItem {
-                label: qsTr('Upvotes');
+                //% "Upvotes"
+                label: qsTrId("detail-upvotes")
                 value: root.ups;
             }
 
             DetailItem {
-                label: qsTr('Downvotes');
+                //% "Downvotes"
+                label: qsTrId("detail-downvotes")
                 value: root.downs;
             }
 

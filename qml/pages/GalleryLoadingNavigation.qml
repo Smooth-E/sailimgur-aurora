@@ -13,9 +13,15 @@ Row {
 
     Button {
         id: prevButton
+
         width: parent.width/2
         enabled: model.prev > 0
-        text: enabled ? qsTr(String("previous (%1 left)").arg(model.prev ? model.prev : 0)) : "previous"
+
+        text: enabled
+              //% "Previous (%1 left)"
+              ? qsTrId("button-previous-gallery-page-with-info").arg(model.prev ? model.prev : 0)
+              //% "Previous"
+              : qsTrId("button-previous-gallery-page")
 
         onClicked: {
             model.getPrevImages();
@@ -24,9 +30,17 @@ Row {
 
     Button {
         id: nextButton
+
         width: parent.width/2
         enabled: model.left > 0
-        text: enabled ? qsTr(String("next (%2/%1 left)").arg(model.total ? model.total : 0).arg(model.left ? model.left : 0)) : "next"
+
+        text: enabled
+              //% "next (%2/%1 left)"
+              ? qsTrId("button-next-gallery-page-with-info")
+                .arg(model.total ? model.total : 0)
+                .arg(model.left ? model.left : 0)
+              //% "next"
+              : qsTrId("button-next-gallery-page")
 
         onClicked: {
             if (settings.useGalleryPage) {

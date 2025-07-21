@@ -22,8 +22,10 @@ Page {
         contentHeight: contentArea.height + 2 * constant.paddingLarge;
 
         PageHeader {
-            id: header;
-            title: qsTr("About Sailimgur");
+            id: header
+
+            //% "About Sailimgur"
+            title: qsTrId("header-sailimgur");
         }
 
         Column {
@@ -34,27 +36,30 @@ Page {
             anchors.leftMargin: constant.paddingMedium;
             anchors.rightMargin: constant.paddingMedium;
 
-            //SectionHeader { text: qsTr("About Sailimgur") }
-
             Item {
                 anchors { left: parent.left; right: parent.right; }
                 height: aboutText.height;
 
                 Label {
-                    id: aboutText;
+                    id: aboutText
+
                     width: parent.width;
                     wrapMode: Text.Wrap;
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeLarge : constant.fontSizeMedium
-                    text: qsTr("Sailimgur is a simple <a href='http://imgur.com'>Imgur</a> app for Sailfish OS, powered by Qt, QML and JavaScript. \
-It has a simple, native and easy-to-use UI. Sailimgur is Open Source and licensed under GPL v3.");
-                    textFormat: Text.StyledText;
-                    linkColor: Theme.highlightColor;
-                    onLinkActivated: Qt.openUrlExternally(link);
+                    //% "Sailimgur is a simple <a href='http://imgur.com'>Imgur</a> app for Sailfish OS, powered by Qt, QML and JavaScript.\nIt has a simple, native and easy-to-use UI. Sailimgur is Open Source and licensed under GPL v3."
+                    text: qsTrId("description-about-sailimgur");
+                    textFormat: Text.StyledText
+                    linkColor: Theme.highlightColor
+
+                    onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
 
-            SectionHeader { text: qsTr("Version") }
+            SectionHeader {
+                //% "Version"
+                text: qsTrId("label-version")
+            }
 
             Item {
                 anchors { left: parent.left; right: parent.right; }
@@ -69,11 +74,15 @@ It has a simple, native and easy-to-use UI. Sailimgur is Open Source and license
                     }
 
                     Label {
-                        id: changeLog;
+                        id: changeLog
+
                         anchors { right: parent.right; leftMargin: constant.paddingLarge; rightMargin: constant.paddingLarge; }
+
                         font.pixelSize: Screen.sizeCategory >= Screen.Large
-                                            ? constant.fontSizeLarge : constant.fontSizeMedium
-                        text: qsTr("Changelog");
+                                        ? constant.fontSizeLarge
+                                        : constant.fontSizeMedium
+                        //% "Changelog"
+                        text: qsTrId("button-view-changelog");
                         color: Theme.highlightColor;
 
                         MouseArea {
@@ -86,7 +95,10 @@ It has a simple, native and easy-to-use UI. Sailimgur is Open Source and license
                 }
             }
 
-            SectionHeader { text: qsTr("Developed By"); }
+            SectionHeader {
+                //% "Developed by"
+                text: qsTrId("label-developed-by")
+            }
 
             ListItem {
                 id: root;
@@ -112,11 +124,16 @@ It has a simple, native and easy-to-use UI. Sailimgur is Open Source and license
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeMedium : constant.fontSizeSmall
                 truncationMode: TruncationMode.Fade;
-                text: qsTr("Bug reports") + ": " + "<a href='https://github.com/walokra/sailimgur/issues'>Github</a>";
-                onLinkActivated: Qt.openUrlExternally(link);
+                //% "Bug reports: %1"
+                text: qsTrId("label-bug-reports").arg("<a href='https://github.com/walokra/sailimgur/issues'>Github</a>")
+
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
-            SectionHeader { text: qsTr("Powered By") }
+            SectionHeader {
+                //% "Powered by"
+                text: qsTrId("label-powered-by")
+            }
 
             ListItem {
                 Image {
@@ -132,7 +149,8 @@ It has a simple, native and easy-to-use UI. Sailimgur is Open Source and license
                                         ? constant.fontSizeXLarge : constant.fontSizeLarge
                     textFormat: Text.StyledText;
                     linkColor: Theme.highlightColor;
-                    onLinkActivated: Qt.openUrlExternally(link);
+
+                    onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
 
@@ -145,22 +163,30 @@ It has a simple, native and easy-to-use UI. Sailimgur is Open Source and license
                 }
                 Label {
                     anchors { left: qtImage.right; leftMargin: constant.paddingLarge; }
-                    text: "Qt + QML";
+
+                    //% "%1 and %2"
+                    text: qsTrId("label-qt-and-qml").arg("Qt").arg("Qml")
                     font.pixelSize: Screen.sizeCategory >= Screen.Large
                                         ? constant.fontSizeXLarge : constant.fontSizeLarge
                 }
             }
 
-            SectionHeader { text: qsTr("imgur API Rate limits") }
+            SectionHeader {
+                //% "Imgur API rate limits"
+                text: qsTrId("label-imgur-api-rate-limits")
+            }
 
             Label {
-                id: creditsText;
+                id: creditsText
+
                 width: parent.width;
                 height: 100;
                 wrapMode: Text.Wrap;
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
-                                    ? constant.fontSizeSmall : constant.fontSizeXSmall
-                text: "Remaining: " + settings.user + " = " + main.creditsUserRemaining + ", client = " + main.creditsClientRemaining;
+                                ? constant.fontSizeSmall
+                                : constant.fontSizeXSmall
+                //% "Remaining: %1 - %2, client - %3"
+                text: qsTrId("label-remaining-api-requests").arg(settings.user).arg(main.creditsRemaining).arg(main.creditsClientRemaining)
             }
         }
         ScrollDecorator {}

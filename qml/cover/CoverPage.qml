@@ -87,7 +87,8 @@ CoverBackground {
         font.pixelSize: Theme.fontSizeLarge
         color: Theme.highlightColor
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-        text: qsTr("Refreshing")
+        //% "Refreshing"
+        text: qsTrId("status-refreshing")
 
         Timer {
             property int angle: 0

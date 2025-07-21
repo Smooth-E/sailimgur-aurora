@@ -25,7 +25,12 @@ Page {
         pressDelay: 0;
         z: -2;
 
-        PageHeader { id: header; title: qsTr("Uploaded images"); }
+        PageHeader {
+            id: header
+
+            //% "Uploaded images"
+            title: qsTrId("header-uploaded-images")
+        }
 
         anchors.fill: parent;
         anchors.leftMargin: constant.paddingMedium;

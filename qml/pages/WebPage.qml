@@ -50,7 +50,8 @@ Page {
 
             PullDownMenu {
                 MenuItem {
-                    text: qsTr("Close web view")
+                    //% "Close web view"
+                    text: qsTrId("button-close-webview")
 
                     onClicked: {
                         root.backNavigation = true;
@@ -59,15 +60,16 @@ Page {
                 }
 
                 MenuItem {
-                    text: qsTr("Copy link to clipboard");
+                    text: qsTrId("button-copy-link-to-clipboard")
+
                     onClicked: {
-                        Clipboard.text = url;
-                        infoBanner.showText(qsTr("Link") + " " + Clipboard.text + " " + qsTr("copied to clipboard."));
+                        Clipboard.text = url
+                        infoBanner.showText(qsTrId("label-link-copied").arg(url))
                     }
                 }
 
                 MenuItem {
-                    text: qsTr("Open in external browser")
+                    text: qsTrId("button-open-in-external-browser")
 
                     onClicked: {
                         Qt.openUrlExternally(root.url);
@@ -95,5 +97,4 @@ Page {
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
     }
-
 }

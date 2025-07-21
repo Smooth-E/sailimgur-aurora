@@ -30,7 +30,6 @@ Page {
         }
 
         if (is_album == true) {
-            //galleryContentPageTitle = (is_gallery == true) ? qsTr("Gallery album's image") : qsTr("Album's image");
             galleryContentPageTitle = galleryModel.get(currentIndex).title;
             galleryContentModel.getAlbum(imgur_id, is_gallery);
         }

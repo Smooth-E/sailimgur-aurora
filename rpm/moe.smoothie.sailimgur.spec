@@ -25,7 +25,6 @@ Sailimgur is an imgur app for Sailfish OS with simple and easy-to-use UI.
 It provides basic functionality like browsing, uploading, searching,
 favoriting, voting, viewing your favorites and images.
 
-
 %prep
 %autosetup
 

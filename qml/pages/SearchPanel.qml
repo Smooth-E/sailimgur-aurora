@@ -27,7 +27,8 @@ Item {
             focus = false;
         }
 
-        placeholderText: qsTr("Search from gallery");
+        //% "Search from gallery"
+        placeholderText: qsTrId("label-search-gallery")
     }
 
     QtObject {
