@@ -3,6 +3,7 @@ TARGET = moe.smoothie.sailimgur
 # Application version
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
+DEFINES += PACKAGE_NAME=\\\"moe.smoothie.sailimgur\\\"
 
 # Qt Library
 QT += svg network multimedia
@@ -68,7 +69,7 @@ INCLUDEPATH += $$PWD
 
 AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
 
-CONFIG += auroraapp_i18n
+CONFIG += auroraapp_i18n auroraapp_i18n_idbased
 
 TRANSLATIONS += \
     translations/moe.smoothie.sailimgur.ts \

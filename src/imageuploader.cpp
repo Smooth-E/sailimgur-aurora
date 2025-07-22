@@ -64,7 +64,8 @@ void ImageUploader::upload() {
     qDebug("fileName: %s", qPrintable(m_fileName));
 
     if (!fileInfo.exists()) {
-        emit failure(-1, tr("The file %1 does not exists").arg(m_fileName));
+        //% "The file %1 does not exists"
+        emit failure(-1, qtTrId("message-file-exists").arg(m_fileName));
         postdata.clear();
         return;
     }
@@ -74,7 +75,8 @@ void ImageUploader::upload() {
 
     if (!opened) {
         qDebug("can't read file: %s", qPrintable(m_fileName));
-        emit failure(-1, tr("Unable to open the file %1").arg(file.fileName()));
+        //% "Unable to open the file %1"
+        emit failure(-1, qtTrId("message-unable-to-open-file").arg(file.fileName()));
         postdata.clear();
         return;
     }

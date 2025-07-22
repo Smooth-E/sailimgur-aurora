@@ -21,15 +21,7 @@
     </message>
     <message id="description-about-sailimgur">
         <source>Sailimgur is a simple &lt;a href=&apos;http://imgur.com&apos;&gt;Imgur&lt;/a&gt; app for Sailfish OS, powered by Qt, QML and JavaScript.\nIt has a simple, native and easy-to-use UI. Sailimgur is Open Source and licensed under GPL v3.</source>
-        <oldsource>Sailimgur is a simple &lt;a href=&apos;http://imgur.com&apos;&gt;Imgur&lt;/a&gt;
-                app
-                for Sailfish OS, powered by Qt, QML and JavaScript.\nIt has a simple, native and
-                easy-to-use UI. Sailimgur is Open Source and licensed under GPL v3.</oldsource>
-        <translation type="unfinished">Sailimgur is a simple &lt;a
-                href=&apos;http://imgur.com&apos;&gt;Imgur&lt;/a&gt; app for Sailfish OS, powered by
-                Qt,
-                QML and JavaScript.\nIt has a simple, native and easy-to-use UI. Sailimgur is Open
-                Source and licensed under GPL v3.</translation>
+        <translation>Sailimgur is a simple &lt;a href=&apos;http://imgur.com&apos;&gt;Imgur&lt;/a&gt; app for Sailfish OS, powered by Qt, QML and JavaScript.\nIt has a simple, native and easy-to-use UI. Sailimgur is Open Source and licensed under GPL v3.</translation>
     </message>
     <message id="label-version">
         <source>Version</source>
@@ -365,10 +357,7 @@
     </message>
     <message id="preference-show-mature-content-description">
         <source>Mature posts and comments may include sexually suggestive or adult-oriented content.</source>
-        <oldsource>Mature posts and comments may include sexually suggestive or adult-oriented
-                content.</oldsource>
-        <translation type="unfinished">Mature posts and comments may include sexually suggestive or adult-oriented
-                content.</translation>
+        <translation>Mature posts and comments may include sexually suggestive or adult-oriented content.</translation>
     </message>
     <message id="preference-autoplay">
         <source>Autoplay videos / images</source>
@@ -376,12 +365,7 @@
     </message>
     <message id="preference-autoplay-description">
         <source>Autoplay animated images (gif/gifv). Disabling autoplay may help with showing large albums.</source>
-        <oldsource>Autoplay animated images (gif/gifv). Disabling autoplay may help with showing
-                large
-                albums.</oldsource>
-        <translation type="unfinished">Autoplay animated images (gif/gifv). Disabling autoplay may help with
-                showing
-                large albums.</translation>
+        <translation>Autoplay animated images (gif/gifv). Disabling autoplay may help with showing large albums.</translation>
     </message>
     <message id="preference-use-video-player">
         <source>Use video player</source>
@@ -409,10 +393,7 @@
     </message>
     <message id="description-sign-in">
         <source>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</source>
-        <oldsource>To use Sailimgur, you must sign in to your imgur account first.\nClick the
-                button below will launch an external web browser for you to sign in.</oldsource>
-        <translation type="unfinished">To use Sailimgur, you must sign in to your imgur account first.\nClick the
-                button below will launch an external web browser for you to sign in.</translation>
+        <translation>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</translation>
     </message>
     <message id="button-sign-in">
         <source>Sign in</source>
@@ -436,10 +417,7 @@
     </message>
     <message id="notice.auth-failed">
         <source>Error: Unable to authorize with imgur. Please sign in again and enter the correct PIN code.</source>
-        <oldsource>Error: Unable to authorize with imgur. Please sign in again and enter the
-                correct PIN code.</oldsource>
-        <translation type="unfinished">Error: Unable to authorize with imgur. Please sign in again and enter the
-                correct PIN code.</translation>
+        <translation>Error: Unable to authorize with imgur. Please sign in again and enter the correct PIN code.</translation>
     </message>
     <message id="button-copy-delete-link-to-clipboard">
         <source>Copy delete link to clipboard</source>
@@ -521,111 +499,21 @@
         <source>Close web view</source>
         <translation>Close web view</translation>
     </message>
-</context>
-<context>
-    <name>ChangelogDialog</name>
-    <message>
+    <message id="header-changelog">
         <source>Changelog</source>
-        <translation type="unfinished">Changelog</translation>
+        <translation>Changelog</translation>
     </message>
-    <message>
+    <message id="button-close">
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
-    <message>
-        <source>Version</source>
-        <translation type="unfinished">Version</translation>
-    </message>
-    <message>
-        <source>User interface updates from patch by ichthyosaurus.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fix issue with fetching more comments.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fix zoom on image. Adjust UI elements for tablet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable playing mp4 videos by default, enhancements regarding playing videos.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To open imgur link with app, paste link to search field.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New pulley actions for gallery page: open in external browser, copy link.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Option for autoplaying gif.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fix Qt 5.2 WebView chokes on caches from older Qt versions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use toolbar instead of sidebar for functions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Option to select toolbar position top/bottom.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account page shows user info and pages.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Image info shown on page.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save image to Pictures.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Interface adjustments: next/previous links, image and comment actions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add mode to browse subreddits. Add time window option to highest scoring and memes modes.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add &apos;previous images&apos; to limit showed images and to fix issues with large albums.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Added setting to filter mature content. Showing mature content is off by default, &apos;safe for work&apos;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Support for actions with TOHKBD keys. Navigation with arrow keys, backspace, M to load more, C to load comments, gallery mode changed with 1-5.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revert to showing plain animated images instead of gifv videos which aren&apos;t yet supported by Sailfish OS.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gifv videos still unplayable due missing decoders. To view them, open album with browser (pulldown menu).</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImageUploader</name>
-    <message>
+    <message id="message-file-exists">
         <source>The file %1 does not exists</source>
-        <translation type="unfinished"></translation>
+        <translation>The file %1 does not exists</translation>
     </message>
-    <message>
+    <message id="message-unable-to-open-file">
         <source>Unable to open the file %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to open the file %1</translation>
     </message>
 </context>
 </TS>

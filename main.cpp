@@ -1,4 +1,5 @@
 #include <auroraapp.h>
+#include <QtQuick/QtQuick>
 #include <QScopedPointer>
 #include <QQuickView>
 #include <QQmlEngine>
@@ -6,6 +7,7 @@
 #include <QQmlContext>
 #include <QtQml>
 #include <QDebug>
+#include <QTranslator>
 
 #include "src/imageuploader.h"
 #include "src/sailimgur.h"
@@ -55,9 +57,19 @@ int main(int argc, char *argv[])
 
     QScopedPointer<QQuickView> view(Aurora::Application::createView());
 
-    app->setApplicationName("harbour-sailimgur");
-    app->setOrganizationName("harbour-sailimgur");
+    app->setApplicationName("sailimgur");
+    app->setOrganizationName("com.smoothie");
     app->setApplicationVersion(APP_VERSION);
+
+    QScopedPointer<QTranslator> fallbackTranslator(new QTranslator());
+    fallbackTranslator->load(QString("%1.qm").arg(PACKAGE_NAME), ":/translations");
+    app->installTranslator(fallbackTranslator.data());
+
+    QScopedPointer<QTranslator> translator(new QTranslator());
+    translator->load(QLocale(), PACKAGE_NAME, "-", ":/translations");
+    app->installTranslator(translator.data());
+
+    app->installTranslator(translator.data());
 
     view->rootContext()->setContextProperty("APP_VERSION", APP_VERSION);
     view->rootContext()->setContextProperty("APP_RELEASE", APP_RELEASE);

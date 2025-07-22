@@ -6,7 +6,6 @@ Group:      Applications/Internet
 License:    GPLv3
 URL:        http://ruleoftech.com/lab/sailimgur
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  harbour-sailimgur.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   qt5-qtsvg-plugin-imageformat-svg
 Requires:   qt5-plugin-imageformat-gif
