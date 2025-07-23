@@ -65,10 +65,10 @@ int main(int argc, char *argv[])
     fallbackTranslator->load(QString("%1.qm").arg(PACKAGE_NAME), ":/translations");
     app->installTranslator(fallbackTranslator.data());
 
-    QScopedPointer<QTranslator> translator(new QTranslator());
-    translator->load(QLocale(), PACKAGE_NAME, "-", ":/translations");
-    app->installTranslator(translator.data());
+    qDebug() << "Loading translation with locale " << QLocale().name();
 
+    QScopedPointer<QTranslator> translator(new QTranslator());
+    translator->load(QLocale(), PACKAGE_NAME, "-", QString("/usr/share/%1/translations/").arg(PACKAGE_NAME));
     app->installTranslator(translator.data());
 
     view->rootContext()->setContextProperty("APP_VERSION", APP_VERSION);
