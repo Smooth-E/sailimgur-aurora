@@ -332,10 +332,6 @@
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
-    <message id="button-save">
-        <source>Save</source>
-        <translation>Сохранить</translation>
-    </message>
     <message id="preference-images-shown-in-album">
         <source>Images shown in album</source>
         <translation>Количество изображений в альбомах</translation>
@@ -350,7 +346,7 @@
     </message>
     <message id="preference-reddit-sub">
         <source>Reddit sub:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сабреддит:</translation>
     </message>
     <message id="preference-show-mature-content">
         <source>Show mature content</source>
@@ -393,8 +389,9 @@
         <translation>Войти в Imgur</translation>
     </message>
     <message id="description-sign-in">
-        <source>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</source>
-        <translation>Для использования Sailimgur требуется войти в учетную запись Imgur.\nНахмите на кнопку ниже, чтобы открыть страницу входа во внешнем браузере.</translation>
+        <source>To use Sailimgur, you must sign in to your imgur account first.&lt;br/&gt;Click the button below will launch an external web browser for you to sign in.</source>
+        <oldsource>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</oldsource>
+        <translation type="unfinished">Для использования Sailimgur требуется войти в учетную запись Imgur.\nНахмите на кнопку ниже, чтобы открыть страницу входа во внешнем браузере.</translation>
     </message>
     <message id="button-sign-in">
         <source>Sign in</source>

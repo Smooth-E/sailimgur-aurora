@@ -26,3 +26,4 @@ moc_*
 
 # Adjust .gitignore after renaming everything to a new name
 moe.smoothie.sailimgur
+keys.txt

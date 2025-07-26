@@ -4,6 +4,8 @@ TARGET = moe.smoothie.sailimgur
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 DEFINES += APP_RELEASE=\\\"$$RELEASE\\\"
 DEFINES += PACKAGE_NAME=\\\"moe.smoothie.sailimgur\\\"
+DEFINES += CLIENT_ID=\\\"imgur-api-client-id\\\"
+DEFINES += CLIENT_SECRET=\\\"imgur-api-client-secret\\\"
 
 # Qt Library
 QT += svg network multimedia
@@ -22,6 +24,7 @@ SOURCES += main.cpp \
 
 OTHER_FILES = \
     moe.smoothie.sailimgur.desktop \
+    qml/pages/SettingsPage.qml \
     rpm/harbour-sailimgur.changes \
     qml/main.qml \
     qml/cover/CoverPage.qml \
@@ -56,7 +59,6 @@ OTHER_FILES = \
     qml/pages/ChangelogDialog.qml \
     qml/pages/Toolbar.qml \
     qml/pages/AccountPage.qml \
-    qml/pages/SettingsDialog.qml \
     qml/pages/ActionBar.qml \
     qml/pages/SearchPanel.qml \
     qml/pages/ImageInfoPage.qml \

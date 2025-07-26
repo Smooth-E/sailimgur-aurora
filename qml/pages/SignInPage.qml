@@ -41,8 +41,9 @@ Page {
                 font.pixelSize: Screen.sizeCategory >= Screen.Large
                                     ? constant.fontSizeLarge : constant.fontSizeMedium;
                 wrapMode: Text.Wrap;
-                //% "To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in."
-                text: qsTrId("description-sign-in");
+                //% "To use Sailimgur, you must sign in to your imgur account first.<br/>"
+                //% "Click the button below will launch an external web browser for you to sign in."
+                text: qsTrId("description-sign-in")
             }
 
             Item {
@@ -58,11 +59,12 @@ Page {
                     text: qsTrId("button-sign-in")
 
                     onClicked: {
-                        var signInUrl = Imgur.AUTHORIZE_URL+"?client_id="+constant.clientId+"&response_type=pin";
-                        console.log("Launching web browser with url:", signInUrl);
-                        Qt.openUrlExternally(signInUrl);
-                        infoBanner.showText("Launching external web browser...");
-                        header.busy = false;
+                        var signInUrl = Imgur.AUTHORIZE_URL+"?client_id="+constant.clientId+"&response_type=pin"
+                        console.log("Launching web browser with url:", signInUrl)
+                        intentInvoker.invoke("OpenURI", { }, { "uri": signInUrl })
+                        // Qt.openUrlExternally(signInUrl);
+                        infoBanner.showText("Launching external web browser...")
+                        header.busy = false
                     }
                 }
             }

@@ -22,6 +22,8 @@ QtObject {
 
     property color iconDefaultColor: Theme.rgba(Theme.secondaryColor, 0.4);
 
+    // TODO: Use Theme values instead
+
     // easier access to padding size
     property int paddingSmall : Theme.paddingSmall;
     property int paddingMedium : Theme.paddingMedium;
@@ -29,20 +31,33 @@ QtObject {
     property int paddingExtraLarge : 2 * Theme.paddingMedium;
 
     // easier access to item size
-    property int itemSizeExtraSmall: Theme.itemSizeExtraSmall; // suits the smallest UI controls; used as the height of buttons and pulley menu entries
-    property int itemSizeSmall: Theme.itemSizeSmall; // suits small UI controls; used as the height of list items with one line of text
-    property int itemSizeMedium: Theme.itemSizeMedium; // suits average-sized UI controls; used as the height of list items with two lines of text
-    property int itemSizeLarge: Theme.itemSizeLarge; // suits controls with several lines of text or more prominent text; this is the height of a page header in portrait orientation
-    property int itemSizeExtraLarge: Theme.itemSizeExtraLarge; // suits larger items such as list delegates with an image thumbnail and associated image details
-    property int itemSizeHuge: Theme.itemSizeHuge; // suits larger items such as images in a fullscreen grid of thumbnail images
+    // suits the smallest UI controls; used as the height of buttons and pulley menu entries
+    property int itemSizeExtraSmall: Theme.itemSizeExtraSmall
+    // suits small UI controls; used as the height of list items with one line of text
+    property int itemSizeSmall: Theme.itemSizeSmall
+    // suits average-sized UI controls; used as the height of list items with two lines of text
+    property int itemSizeMedium: Theme.itemSizeMedium
+    // suits controls with several lines of text or more prominent text; this is the height of a page header in portrait orientation
+    property int itemSizeLarge: Theme.itemSizeLarge
+    // suits larger items such as list delegates with an image thumbnail and associated image details
+    property int itemSizeExtraLarge: Theme.itemSizeExtraLarge
+    // suits larger items such as images in a fullscreen grid of thumbnail images
+    property int itemSizeHuge: Theme.itemSizeHuge
 
-    property int iconSizeExtraSmall: Theme.iconSizeExtraSmall; // suits the smallest icons, such as those in the Home status area
-    property int iconSizeSmall: Theme.iconSizeSmall; // suits small icons, such as CoverAction icons and icons on the Events screen
-    property int iconSizeSmallPlus: Theme.iconSizeSmallPlus; // a larger variant of iconSizeSmall, used for notification icons
-    property int iconSizeMedium: Theme.iconSizeMedium; // the most common icon size; suits icons in small to medium-sized list items
-    property int iconSizeLarge: Theme.iconSizeLarge; // suits larger icon displays and buttons
-    property int iconSizeExtraLarge: Theme.iconSizeExtraLarge; // suits very large icon displays
-    property int iconSizeLauncher: Theme.iconSizeLauncher; // for icons in the Home app grid
+    // suits the smallest icons, such as those in the Home status area
+    property int iconSizeExtraSmall: Theme.iconSizeExtraSmall
+    // suits small icons, such as CoverAction icons and icons on the Events screen
+    property int iconSizeSmall: Theme.iconSizeSmall
+    // a larger variant of iconSizeSmall, used for notification icons
+    property int iconSizeSmallPlus: Theme.iconSizeSmallPlus
+    // the most common icon size; suits icons in small to medium-sized list items
+    property int iconSizeMedium: Theme.iconSizeMedium
+    // suits larger icon displays and buttons
+    property int iconSizeLarge: Theme.iconSizeLarge
+    // suits very large icon displays
+    property int iconSizeExtraLarge: Theme.iconSizeExtraLarge
+    // for icons in the Home app grid
+    property int iconSizeLauncher: Theme.iconSizeLauncher
 
     // easier access to font size
     property int fontSizeXXSmall : Theme.fontSizeTiny;
@@ -53,11 +68,11 @@ QtObject {
     property int fontSizeXLarge : Theme.fontSizeExtraLarge;
     property int fontSizeXXLarge : Theme.fontSizeHuge;
 
-    property var fontSizeHeader: Theme.fontSizeLarge;
-    property var fontSizeTitle: Theme.fontSizeLarge;
-    property var fontSizeNormal: Theme.fontSizeMedium;
-    property var fontSizeMeta: Theme.fontSizeSmall;
-    property var fontSizeIgnore: Theme.fontSizeExtraSmall;
+    property real fontSizeHeader: Theme.fontSizeLarge;
+    property real fontSizeTitle: Theme.fontSizeLarge;
+    property real fontSizeNormal: Theme.fontSizeMedium;
+    property real fontSizeMeta: Theme.fontSizeSmall;
+    property real fontSizeIgnore: Theme.fontSizeExtraSmall;
 
     // icons
     property string iconDislike : "image://theme/icon-m-down";
@@ -81,13 +96,13 @@ QtObject {
     property string iconLogo: "../images/sailimgur-logo_86x86.svg";
 
     // modes
-    property string mode_main : "main";
-    property string mode_user : "user";
-    property string mode_random : "random";
-    property string mode_score : "score";
-    property string mode_memes : "memes";
-    property string mode_reddit : "reddit";
-    property string mode_favorites : "favorites";
-    property string mode_albums : "albums";
-    property string mode_images : "images";
+    property string mode_main: "main"
+    property string mode_user: "user"
+    property string mode_random: "random"
+    property string mode_score: "score"
+    property string mode_memes: "memes"
+    property string mode_reddit: "reddit"
+    property string mode_favorites: "favorites"
+    property string mode_albums: "albums"
+    property string mode_images: "images"
 }

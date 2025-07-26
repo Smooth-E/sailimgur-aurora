@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import ru.auroraos.RuntimeManager 1.0
 import "pages"
 import "cover"
 
@@ -32,7 +33,7 @@ ApplicationWindow {
 
     AboutPage { id: aboutPage; }
 
-    SettingsDialog { id: settingsDialog; }
+    SettingsPage { id: settingsPage }
 
     Settings { id: settings; }
 
@@ -171,6 +172,10 @@ ApplicationWindow {
             size: BusyIndicatorSize.Large;
             Behavior on opacity { FadeAnimation {} }
         }
+    }
+
+    IntentsInvoker {
+        id: intentInvoker
     }
 
     Component.onCompleted: {

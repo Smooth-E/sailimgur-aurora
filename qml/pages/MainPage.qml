@@ -45,7 +45,7 @@ Page {
     }
 
     Connections {
-        target: settingsDialog;
+        target: settingsPage;
         onToolbarPositionChanged: {
             galgrid.state = "reanchored";
         }
@@ -179,7 +179,7 @@ Page {
                 text: qsTrId("button-settings")
 
                 onClicked: {
-                    pageStack.push(settingsDialog);
+                    pageStack.push(settingsPage);
                 }
             }
         }

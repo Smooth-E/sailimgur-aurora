@@ -331,10 +331,6 @@
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
-    <message id="button-save">
-        <source>Save</source>
-        <translation>Save</translation>
-    </message>
     <message id="preference-images-shown-in-album">
         <source>Images shown in album</source>
         <translation>Images shown in album</translation>
@@ -392,8 +388,9 @@
         <translation>Sign In to imgur</translation>
     </message>
     <message id="description-sign-in">
-        <source>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</source>
-        <translation>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</translation>
+        <source>To use Sailimgur, you must sign in to your imgur account first.&lt;br/&gt;Click the button below will launch an external web browser for you to sign in.</source>
+        <oldsource>To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</oldsource>
+        <translation type="unfinished">To use Sailimgur, you must sign in to your imgur account first.\nClick the button below will launch an external web browser for you to sign in.</translation>
     </message>
     <message id="button-sign-in">
         <source>Sign in</source>

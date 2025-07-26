@@ -13,7 +13,7 @@ Item {
     property alias galleryMode: galleryMode;
 
     Connections {
-        target: settingsDialog;
+        target: settingsPage;
         onToolbarPositionChanged: {
             //console.debug("actionBar.onToolbarPositionChanged");
             toolbar.state = "reanchored";

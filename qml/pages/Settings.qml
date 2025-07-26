@@ -32,7 +32,7 @@ QtObject {
     property string section : "hot"; // hot | top | user
     property string sort : "viral"; // viral | time | top
     property string window : "day"; // day | week | month | year | all
-    property string redditSub : "earthporn";
+    property string redditSub : "aww"
     property bool showViral : false; // true | false
 
     property string installedVersion: ""; // which version user currently has?
